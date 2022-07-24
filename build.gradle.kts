@@ -5,6 +5,8 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.12.RELEASE"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
+	id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
+	id("org.jlleitschuh.gradle.ktlint-idea") version "10.0.0"
 }
 
 group = "com.gugujeoljeol"
@@ -24,6 +26,12 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	// expose
+	implementation("org.jetbrains.exposed:exposed:0.17.14")
+	implementation("org.jetbrains.exposed:spring-transaction:0.38.2")
+	implementation("org.jetbrains.exposed:exposed-java-time:0.38.2")
+	implementation("com.zaxxer:HikariCP:5.0.0")
 }
 
 tasks.withType<KotlinCompile> {
